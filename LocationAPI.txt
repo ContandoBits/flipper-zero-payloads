@@ -1,0 +1,37 @@
+REM This is BadUSB demo script for windows
+
+REM Abrir PowerShell en Windows
+DELAY 500
+GUI r
+DELAY 500
+STRING powershell
+ENTER
+DELAY 1000
+STRING $response = Invoke-RestMethod -Uri "http://ip-api.com/json"
+DELAY 1000
+ENTER
+DELAY 500
+STRING $lat = $response.lat
+DELAY 500
+ENTER
+DELAY 500
+STRING $lon = $response.lon
+DELAY 500
+ENTER
+DELAY 500
+STRING $lon = $lon -replace ",", "."
+DELAY 500
+ENTER
+DELAY 500
+STRING $lat = $lat -replace ",", "."
+DELAY 500
+ENTER
+DELAY 500
+STRING $url = "https://www.latlong.net/c/?lat=$lat&long=$lon"
+DELAY 500
+ENTER
+DELAY 500
+STRING Start-Process "chrome.exe" $url 
+REM Start-Process $url
+DELAY 500
+ENTER
