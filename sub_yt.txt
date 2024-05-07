@@ -1,0 +1,22 @@
+REM This is BadUSB demo script for windows
+
+REM Abrir PowerShell en Windows
+DELAY 500
+GUI r
+DELAY 500
+STRING powershell
+ENTER
+DELAY 1000
+STRING $url = "https://www.youtube.com/c/contandobits?sub_confirmation=1"
+DELAY 250
+ENTER
+DELAY 250
+STRING Start-Process "chrome.exe" $url
+DELAY 250
+ENTER
+DELAY 6000
+TAB
+DELAY 1000
+TAB
+DELAY 1000
+ENTER
